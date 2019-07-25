@@ -1,154 +1,18 @@
-# 项目相关配置
-fyt:
-  # 名称
-  name: fyt
-  # 版本
-  version: 2.4.0
-  # 版权年份
-  copyrightYear: 2018
-  # 文件上传路径
-  profile: D:/profile/
-  # 获取ip地址开关
-  addressEnabled: false
-# 开发环境配置
+#swagger 配置
 server:
-  # 服务端口
   port: 8088
-  servlet:
-    # 项目contextPath
-    context-path: /
   tomcat:
-    # tomcat的URI编码
     uri-encoding: UTF-8
-    # tomcat最大线程数，默认为200
     max-threads: 800
-    # Tomcat启动初始化的线程数，默认值25
     min-spare-threads: 30
+    max-connections: 10000
 
-# 日志配置
-logging:
-  level:
-    com.fyt: debug
-    org.springframework: WARN
-    org.spring.springboot.dao: debug
 
-# 用户配置
-user:
-  password:
-    # 密码错误{maxRetryCount}次锁定10分钟
-    maxRetryCount: 5
-# Spring配置
 spring:
-  # 模板引擎
-  thymeleaf:
-    mode: HTML
-    encoding: utf-8
-    # 禁用缓存
-    cache: false
-    prefix: classpath:/templates/
-  # 资源信息
-  messages:
-    # 国际化资源文件路径
-    basename: i18n/messages
-  jackson:
-    time-zone: GMT+8
-    date-format: yyyy-MM-dd HH:mm:ss
-  profiles:
-    active: druid
-  # 文件上传
-  servlet:
-    multipart:
-      max-file-size:  30MB
-      max-request-size:  30MB
-  # 服务模块
-  devtools:
-    restart:
-      # 热部署开关
+  http:
+    encoding:
+      charset: UTF-8
+      force: true
       enabled: true
-
-
-
-  # elasticsearch 配置
-  data:
-    elasticsearch:
-      cluster-name: es
-      cluster-nodes: 192.168.75.132:9300
-      repositories:
-        enabled: true
-
-
-# MyBatis
-mybatis:
-  # 搜索指定包别名
-  typeAliasesPackage: com.fyt.project
-  # 配置mapper的扫描，找到所有的mapper.xml映射文件
-  mapperLocations: classpath:mybatis/**/*Mapper.xml
-  # 加载全局的配置文件
-  configLocation: classpath:mybatis/mybatis-config.xml
-
-# PageHelper分页插件
-pagehelper:
-  helperDialect: oracle
-  reasonable: true
-  supportMethodsArguments: true
-  params: count=countSql
-
-# 防止XSS攻击
-xss:
-  # 过滤开关
-  enabled: true
-  # 排除链接（多个用逗号分隔）
-  excludes: /system/notice/*
-  # 匹配链接
-  urlPatterns: /system/*,/monitor/*,/tool/*
-
-# 代码生成
-gen:
-  # 作者
-  author: fyt
-  # 默认生成包路径 module 需改成自己的模块名称 如 system monitor tool
-  packageName: com.ruoyi.project.module
-  # 自动去除表前缀，默认是true
-  autoRemovePre: true
-  # 表前缀(类名不会包含表前缀)
-  tablePrefix: sys_
-
-
-
-#redis
-redis:
-  #redis机器ip
-  hostname: 127.0.0.1
-  #redis端口
-  port: 6379
-  #redis密码
-  password:
-  #redis超时时间（毫秒），如果不设置，取默认值2000
-  timeout: 10000
-  #最大空闲数
-  maxIdle: 300
-  #连接池的最大数据库连接数。设为0表示无限制,如果是jedis 2.4以后用redis.maxTotal
-  #maxActive=600
-  #控制一个pool可分配多少个jedis实例,用来替换上面的redis.maxActive,如果是jedis 2.4以后用该属性
-  maxTotal: 1000
-  #最大建立连接等待时间。如果超过此时间将接到异常。设为-1表示无限制。
-  maxWaitMillis: 1000
-  #连接的最小空闲时间 默认1800000毫秒(30分钟)
-  minEvictableIdleTimeMillis: 300000
-  #每次释放连接的最大数目,默认3
-  numTestsPerEvictionRun: 1024
-  #逐出扫描的时间间隔(毫秒) 如果为负数,则不运行逐出线程, 默认-1
-  timeBetweenEvictionRunsMillis: 30000
-  #是否在从池中取出连接前进行检验,如果检验失败,则从池中去除连接并尝试取出另一个
-  testOnBorrow: true
-  #在空闲时检查有效性, 默认false
-  testWhileIdle: true
-
-#sdk配置
-  sdk:
-    #ip+server
-    server: https://10.38.70.240/
-    #查询卡口信息url
-    findAllCrossingInfoUrl: kapu-server/service/rs/bmsResourceService/findAllCrossingInfo
-    #查询过车数据url
-    searchVehiclepassUrl: kapu-server/service/rs/bmsVehiclePassService/searchVehiclepass
+swagger2:
+  enable: true

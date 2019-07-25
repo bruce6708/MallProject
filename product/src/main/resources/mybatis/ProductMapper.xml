@@ -10,7 +10,7 @@
         <!--<result column="product_price" jdbcType="VARCHAR" property="productPrice" />-->
     <!--</resultMap>-->
 
-    <!-- 查询常驻人口户口总数 -->
+    <!-- 根据id查询商品列表 -->
     <select id="selectById" resultType="com.qm.product.domain.Product">
         select * from m_product where id= #{id}
     </select>

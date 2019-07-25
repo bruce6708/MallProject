@@ -2,11 +2,11 @@ package com.qm.product.controller;
 
 import com.qm.product.domain.Product;
 import com.qm.service.ProductService;
+import io.swagger.annotations.ApiImplicitParam;
+import io.swagger.annotations.ApiImplicitParams;
+import io.swagger.annotations.ApiOperation;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
 
@@ -17,19 +17,12 @@ public class ProductController {
     @Resource
     private ProductService productService;
 
-//    @RequestMapping(value = "{id}",method = RequestMethod.GET)
-//    public Product getProductById(@PathVariable long id){
-//        Product product=this.productService.getProductById(id);
-//        System.out.println(product);
-//        return product;
-//
-//    }
-
-
-
-    @RequestMapping("getProduct/{id}")
-    public String GetProduct(@PathVariable long id){
-        return productService.getProductById(id).toString();
+    @ApiOperation(value="获取商品详细信息", notes="根据url的id来获取用户详细信息")
+    @ApiImplicitParam(name = "id", value = "用户ID", required = true, dataType = "Long")
+    @RequestMapping(value="/{id}", method=RequestMethod.GET)
+    public Product GetProduct(@PathVariable long id){
+        Product product=new Product();
+        return productService.getProductById(id);
     }
 
 
