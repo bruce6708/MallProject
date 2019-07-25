@@ -10,7 +10,6 @@ import java.util.Date;
  * Created by wly on 2018/8/22.
  */
 @Entity
-@Table(name = "m_product")
 public class Product implements Serializable{
 
 	private static final long serialVersionUID = 1L;
