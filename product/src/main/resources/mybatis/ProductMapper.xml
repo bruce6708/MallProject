@@ -19,4 +19,8 @@
     <select id="getClassList" resultType="com.qm.product.domain.T_MALL_CLASS_1">
          select * from t_mall_class_1 ORDER BY id asc
     </select>
+    <!--根据一级类目编号查询二级类目-->
+    <select id="getClassList2" resultType="map" parameterType="int">
+         SELECT flbh1,flmch2 from t_mall_class_2 where flbh1=#{flbh1}
+    </select>
 </mapper>

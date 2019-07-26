@@ -1,7 +1,6 @@
 package com.qm.product.controller;
 
 import com.qm.product.domain.Product;
-import com.qm.product.domain.T_MALL_CLASS_1;
 import com.qm.service.ProductService;
 import io.swagger.annotations.ApiImplicitParam;
 import io.swagger.annotations.ApiOperation;
@@ -9,7 +8,9 @@ import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 @RestController
 @EnableAutoConfiguration
@@ -31,6 +32,14 @@ public class ProductController {
     public List GetClassList(){
         return productService.getClassList();
 
+    }
+
+    @ApiOperation(value="获取商品二级类目", notes="根据一级目录id获取二级类目")
+    @RequestMapping(value="/getClassTwo/{flbh1}", method=RequestMethod.GET)
+    public Map GetClassList2(@PathVariable int flbh1){
+        Map result=new HashMap();
+       result.put("result:",productService.getClassList2(flbh1));
+        return result;
     }
 
 
