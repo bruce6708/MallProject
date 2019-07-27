@@ -1,4 +1,4 @@
-package com.qm.product.swagger;
+package com.qm.tool.swagger;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
