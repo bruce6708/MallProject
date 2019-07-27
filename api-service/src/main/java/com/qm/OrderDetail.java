@@ -1,6 +1,6 @@
 package com.qm;
 
-import com.qm.product.domain.Product;
+import com.qm.product.domain.T_MALL_PRODUCT;
 
 import java.io.Serializable;
 
@@ -10,13 +10,13 @@ import java.io.Serializable;
 public class OrderDetail implements Serializable{
 	private Long id;
 	private Integer num;
-	private Product product;
+	private T_MALL_PRODUCT product;
 
-	public Product getProduct() {
+	public T_MALL_PRODUCT getProduct() {
 		return product;
 	}
 
-	public void setProduct(Product product) {
+	public void setProduct(T_MALL_PRODUCT product) {
 		this.product = product;
 	}
 

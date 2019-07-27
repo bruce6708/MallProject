@@ -1,8 +1,7 @@
 package com.qm.product.service.impl;
 
 import com.qm.product.dao.ProductMapper;
-import com.qm.product.domain.Product;
-import com.qm.product.domain.T_MALL_CLASS_1;
+import com.qm.product.domain.T_MALL_PRODUCT;
 import com.qm.service.ProductService;
 import org.springframework.stereotype.Service;
 
@@ -16,8 +15,8 @@ public class ProductServiceImpl implements ProductService {
     @Resource
     private ProductMapper productMapper;
     @Override
-    public Product getProductById(long id) {
-        return productMapper.selectById(id);
+    public  List<T_MALL_PRODUCT> getProductById(int flbh2) {
+        return productMapper.selectById(flbh2);
     }
 
     @Override

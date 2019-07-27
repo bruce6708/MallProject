@@ -1,13 +1,13 @@
 package com.qm.service;
 
-import com.qm.product.domain.Product;
+import com.qm.product.domain.T_MALL_PRODUCT;
 
 import java.util.List;
 import java.util.Map;
 
 public interface ProductService {
-    //根据id查询商品
-    public Product getProductById(long id);
+    //根据二级类目id查询商品列表
+    public List<T_MALL_PRODUCT> getProductById(int flbh2);
 
 
     //查询商品一级目录

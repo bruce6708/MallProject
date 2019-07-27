@@ -1,6 +1,6 @@
 package com.qm.product.controller;
 
-import com.qm.product.domain.Product;
+import com.qm.product.domain.T_MALL_PRODUCT;
 import com.qm.service.ProductService;
 import io.swagger.annotations.ApiImplicitParam;
 import io.swagger.annotations.ApiOperation;
@@ -20,11 +20,11 @@ public class ProductController {
     private ProductService productService;
 
     @ApiOperation(value="获取商品详细信息", notes="根据url的id来获取用户详细信息")
-    @ApiImplicitParam(name = "id", value = "用户ID", required = true, dataType = "Long")
-    @RequestMapping(value="/{id}", method=RequestMethod.GET)
-    public Product GetProduct(@PathVariable long id){
-        Product product=new Product();
-        return productService.getProductById(id);
+    @ApiImplicitParam(name = "flbh2", value = "用户ID", required = true, dataType = "int")
+    @RequestMapping(value="/{flbh2}", method=RequestMethod.GET)
+    public  List<T_MALL_PRODUCT> GetProduct(@PathVariable int flbh2){
+        T_MALL_PRODUCT product=new T_MALL_PRODUCT();
+        return productService.getProductById(flbh2);
     }
 
     @ApiOperation(value="获取商品一级类目", notes="获取商品的一级类目")

@@ -10,9 +10,9 @@
         <!--<result column="product_price" jdbcType="VARCHAR" property="productPrice" />-->
     <!--</resultMap>-->
 
-    <!-- 根据id查询商品列表 -->
-    <select id="selectById" resultType="com.qm.product.domain.Product">
-        select * from m_product where id= #{id}
+    <!-- 根据二级商品类目id查询商品列表 -->
+    <select id="selectById" resultType="com.qm.product.domain.T_MALL_PRODUCT">
+        SELECT id,shp_mch,shp_tp,flbh1,flbh2,pp_id,chjshj,shp_msh FROM `t_mall_product` WHERE flbh2=#{flbh2};
     </select>
 
     <!-- 查询一级类目 -->
