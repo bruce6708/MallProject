@@ -9,6 +9,7 @@ public interface ProductService {
     //根据二级类目id查询商品列表
     public List<T_MALL_PRODUCT> getProductById(int flbh2);
 
+    //根据品牌id
 
     //查询商品一级目录
     public List getClassList();
